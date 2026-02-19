@@ -217,7 +217,7 @@ public class Taller3 {
 
         } while (opcion != 4);
         }
-    }
+    
 /*4.      Realice un algoritmo en el que se creen dos listas.
     La primera contiene nombres de personas y la segunda contiene los sexos de las personas de la primera lista,
     codificados como ´f´ (femenino) y ´m´ (masculino).
@@ -225,4 +225,49 @@ public class Taller3 {
     Obtener a partir de las dos listas otras dos,
     la primera de los cuales debe contener todos los nombres de los varones y la segunda, el nombre de todas las mujeres.
 */
+
+    public static void ejercicio4() {
+
+        String[] nombres = new String[50];
+        char[] sexos = new char[50];
+
+        String[] hombres = new String[50];
+        String[] mujeres = new String[50];
+
+        int contador = 0;
+        int contHombres = 0;
+        int contMujeres = 0;
+
+        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántas personas desea registrar?"));
+
+        for (int a = 0; a < cantidad; a++) {
+            nombres[a] = JOptionPane.showInputDialog("Ingrese el nombre de la persona " + (a + 1));
+            sexos[a] = JOptionPane.showInputDialog("Ingrese el sexo (m/f) de " + nombres[a]).toLowerCase().charAt(0);
+            contador++;
+        }
+
+        // Clasificar
+        for (int x = 0; x < contador; x++) {
+
+            if (sexos[x] == 'm') {
+                hombres[contHombres] = nombres[x];
+                contHombres++;
+            } else if (sexos[x] == 'f') {
+                mujeres[contMujeres] = nombres[x];
+                contMujeres++;
+            }
+        }
+        //r hombres
+        String listaHombres = "HOMBRES:\n";
+        for (int m = 0; m < contHombres; m++) {
+            listaHombres += hombres[m] + "\n";
+        }
+        //r mujeres
+        String listaMujeres = "MUJERES:\n";
+        for (int f = 0; f < contMujeres; f++) {
+            listaMujeres += mujeres[f] + "\n";
+        }
+        JOptionPane.showMessageDialog(null, listaHombres + "\n" + listaMujeres);
+    }
+
 }
