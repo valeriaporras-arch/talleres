@@ -10,7 +10,7 @@ package mvcestudiantes.model;
  */
 public class Estudiante {
     
-    private int idEst;
+    private int id;
     private String nombre;
     private String apellido;
     private double promedio;
@@ -21,18 +21,18 @@ public class Estudiante {
     
 
     public Estudiante(int idEst, String nombre, String apellido, double promedio) {
-        this.idEst = idEst;
+        this.id = idEst;
         this.nombre = nombre;
         this.apellido = apellido;
         this.promedio = promedio;
     }
 
     public int getIdEst() {
-        return idEst;
+        return id;
     }
 
     public void setIdEst(int idEst) {
-        this.idEst = idEst;
+        this.id = idEst;
     }
 
     public String getNombre() {
@@ -61,7 +61,11 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Estiudiante{" + "idEst=" + idEst + ", nombre=" + nombre + ", apellido=" + apellido + ", promedio=" + promedio + '}';
+        return "Estiudiante{" + "idEst=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", promedio=" + promedio + '}';
+    }
+
+    Object getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     

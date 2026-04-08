@@ -4,15 +4,16 @@
  */
 package mvcestudiantes.model;
 
-import java.awt.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author UIS
  */
 public class EstudianteDAO {
-    
+    //base de datos psra guardar dat
     private static List<Estudiante> listaEstudiantes = new ArrayList<>();
     
     //METODO Crear (registrar)
@@ -42,4 +43,14 @@ public class EstudianteDAO {
         }
     
     //METODO Read (buscar dea uno por documento)
+    public Estudiante buscarPorDocumento (String documento) {
+        for (Estudiante est : listaEstudiantes) {
+            if (est.getId().equals(documento)) {
+                return est;
+            }
+        }
+        return null;
+    }
+    
+    //METODO
 }
