@@ -4,8 +4,12 @@
  */
 package mvcestudiantes.controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import mvcestudiantes.model.Estudiante;
 import mvcestudiantes.model.Materia;
 import mvcestudiantes.model.MateriaDAO;
@@ -16,7 +20,8 @@ import mvcestudiantes.view.VMateria;
  *
  * @author Usuario
  */
-public class CMateria {
+public class CMateria implements ActionListener{
+    
     private VMateria vista;
     private MateriaDAO dao;
     
@@ -32,7 +37,7 @@ public class CMateria {
         this.vista.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
             public void windowClosing(java.awt.event.WindowEvent e) {
-                ScreenManager.cerrarEstudiantes(CEstudiante.this);
+                ScreenManager.cerrarMateria(CMateria.this);
             }
         });
         
@@ -45,7 +50,7 @@ public class CMateria {
         if (e.getSource() == vista.getBtnRegistrar()) {
             registrar();
         }else if (e.getSource() == vista.getBtnModificar()) {
-            modificar();
+            actualizar();
         }else if (e.getSource() == vista.getBtnEliminar()) {
             eliminar();
         }else if (e.getSource() == vista.getBtnBuscar()) {
@@ -59,7 +64,7 @@ public class CMateria {
             if (dao.guardar(mat)) {
                 JOptionPane.showMessageDialog(vista, "Materia guardado.");
                 llenarTabla();
-                limpiarcampos();
+                limpiarCampos();
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(vista, "Error en datos: " + ex.getMessage());
@@ -67,16 +72,58 @@ public class CMateria {
     }
     
     private void consultar(){
-        String doc = (String) vista.getSpnId().getValue();
+        int doc = (int) vista.getSpnId().getValue();
+        Materia mat = dao.buscarPorDoc(doc);
+        
+        if (mat != null) {
+            vista.getTxtNombre().setText(mat.getNombre());
+            vista.getTxtCreditos().setText(mat.getCreditos());
+            vista.getTxtNota().setText(String.valueOf(mat.getPromedio()));
+        }else {
+            JOptionPane.showMessageDialog(vista, "Materia no encontrada.");
+        }
+                
     }
     private void actualizar(){
-        
+        String doc = (String) vista.getSpnId().getValue();
+        try {
+            Materia actualizado = capturarDatos();
+            
+            if (dao.actualizarDatos(actualizado)) {
+                JOptionPane.showMessageDialog(vista, "Actualizado con éxito.");
+                llenarTabla();
+            }else{
+                JOptionPane.showMessageDialog(vista, "No se pudo actualizar.");
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(vista, "Error al acruaaalizar.");
+        }
     }
+    
     private void eliminar(){
-        
+        String doc = (String)vista.getSpnId().getValue();
+        if (dao.eliminar(doc)) {
+            JOptionPane.showMessageDialog(vista, "Materia eliminada.");
+            limpiarCampos();
+            llenarTabla();
+        }else{
+            JOptionPane.showMessageDialog(vista, "No se encontro el registro.");
+        }
     }
     public void llenarTabla() {
+        DefaultTableModel modeloTabla = (DefaultTableModel) vista.getTblMateria().getModel();
+        modeloTabla.setRowCount(0);
         
+        List<Materia> lista = dao.consTodos();
+        
+        Object[] fila = new Object[4];
+        for (Materia mat : lista) {
+            fila[0] = mat.getId();
+            fila[1] = mat.getNombre();
+            fila[2] = mat.getCreditos();
+            fila[3] = mat.getPromedio();
+            modeloTabla.addRow(fila);
+        }
     }
     
     //   METODOS AUXILIARES
@@ -84,16 +131,24 @@ public class CMateria {
         return new Materia(
                 (int) vista.getSpnId().getValue(),
                 vista.getTxtNombre().getText(),
-                (int) vista.getTxtCreditos().getText(),
+                vista.getTxtCreditos().getText(),
                 Double.parseDouble(vista.getTxtNota().getText())
         );
     }
     
     private void limpiarCampos() {
-        
+        vista.getSpnId().setValue("");
+        vista.getTxtNombre().setText("");
+        vista.getTxtCreditos().setText("");
+        vista.getTxtNota().setText("");
+        vista.getSpnId().requestFocus();
     }
     
     public void finalizar(){
+        this.vista.dispose();
+        this.vista = null;
+        this.dao = null;
         
+        System.out.println("Controlador y referencias liberadas");
     }
 }

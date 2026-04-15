@@ -12,13 +12,13 @@ public class Materia {
     
     private int id;
     private String nombre;
-    private int creditos;
+    private String creditos;
     private double promedio;
     
     public Materia(){
     }
 
-    public Materia(int id, String nombre, int creditos, double promedio) {
+    public Materia(int id, String nombre, String creditos, double promedio) {
         this.id = id;
         this.nombre = nombre;
         this.creditos = creditos;
@@ -41,11 +41,11 @@ public class Materia {
         this.nombre = nombre;
     }
 
-    public int getCreditos() {
+    public String getCreditos() {
         return creditos;
     }
 
-    public void setCreditos(int creditos) {
+    public void setCreditos(String creditos) {
         this.creditos = creditos;
     }
 
@@ -62,5 +62,4 @@ public class Materia {
         return "Materia{" + "id=" + id + ", nombre=" + nombre + ", creditos=" + creditos + ", promedio=" + promedio + '}';
     }
     
-        
 }

@@ -4,8 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/view/ScreenManager.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/controller/CMateria.java</file>
-            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/model/Materia.java</file>
+            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/controller/CProfesores.java</file>
+            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/controller/CEstudiante.java</file>
         </group>
     </open-files>
 </project-private>
