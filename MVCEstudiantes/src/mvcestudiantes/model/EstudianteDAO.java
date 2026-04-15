@@ -34,7 +34,7 @@ public class EstudianteDAO {
     //METODO Delelte (Eliminar por documento)
     public boolean eliminar (String documento) {
         for (int i = 0; i < listaEstudiantes.size(); i++) {
-            if (listaEstudiantes.get(i).getId().equals(documento)) {
+            if (listaEstudiantes.get(i).getId() == Integer.parseInt(documento)) {
                 listaEstudiantes.remove(i);
                 return true;   
             }
@@ -45,7 +45,7 @@ public class EstudianteDAO {
     //METODO Read (buscar dea uno por documento)
     public Estudiante buscarPorDocumento (String documento) {
         for (Estudiante est : listaEstudiantes) {
-            if (est.getId().equals(documento)) {
+            if (est.getId() == Integer.parseInt(documento)) {
                 return est;
             }
         }
@@ -56,7 +56,7 @@ public class EstudianteDAO {
     
     public boolean actializarDatos (Estudiante estActualizado) {
         for (int i = 0; i < listaEstudiantes.size(); i++) {
-            if (listaEstudiantes.get(i).getId().equals(estActualizado.getId())) {
+            if (listaEstudiantes.get(i).getId() == (estActualizado.getId())) {
                 listaEstudiantes.set(i, estActualizado);
                 return true;
             }

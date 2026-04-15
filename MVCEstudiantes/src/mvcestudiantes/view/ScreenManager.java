@@ -13,6 +13,7 @@ import mvcestudiantes.model.EstudianteDAO;
  */
 public class ScreenManager {
     
+    //    ESTUDIANTES
     public static void abrirEstudiantes() {
         
         VEstudiante vista = new VEstudiante();
@@ -33,4 +34,10 @@ public class ScreenManager {
             System.out.println("Pantalla cerrada yobjetos liberados.");
         }
     }
+    
+    //    MATERIAS
+    public static void abrirMaterias(){
+        
+    }
+    //    PROFESORES
 }

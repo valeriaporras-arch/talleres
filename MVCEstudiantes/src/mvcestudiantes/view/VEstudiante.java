@@ -75,16 +75,30 @@ public class VEstudiante extends javax.swing.JFrame {
         tblEstudiantes.setAutoCreateColumnsFromModel(false);
         tblEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Id", "Nombres", "Apellidos", "Promedio"
+                "ID", "Nombre", "Apellido", "Promedio"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblEstudiantes.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(tblEstudiantes);
+        tblEstudiantes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         btnBuscar.setBackground(new java.awt.Color(0, 153, 153));
         btnBuscar.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N

@@ -6,24 +6,22 @@ package mvcestudiantes.model;
 
 /**
  *
- * @author UIS
+ * @author Usuario
  */
-public class Estudiante {
+public class Materia {
     
     private int id;
     private String nombre;
-    private String apellido;
+    private int creditos;
     private double promedio;
-
-    public Estudiante() {
+    
+    public Materia(){
     }
-    
-    
 
-    public Estudiante(int id, String nombre, String apellido, double promedio) {
+    public Materia(int id, String nombre, int creditos, double promedio) {
         this.id = id;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.creditos = creditos;
         this.promedio = promedio;
     }
 
@@ -43,12 +41,12 @@ public class Estudiante {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public int getCreditos() {
+        return creditos;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
     }
 
     public double getPromedio() {
@@ -61,7 +59,8 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Estudiante{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", promedio=" + promedio + '}';
+        return "Materia{" + "id=" + id + ", nombre=" + nombre + ", creditos=" + creditos + ", promedio=" + promedio + '}';
     }
     
+        
 }

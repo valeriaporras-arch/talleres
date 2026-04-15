@@ -3,9 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/UIS/Downloads/talleres-main/talleres-main/MVCEstudiantes/src/mvcestudiantes/controller/CEstudiante.java</file>
-            <file>file:/C:/Users/UIS/Downloads/talleres-main/talleres-main/MVCEstudiantes/src/mvcestudiantes/model/EstudianteDAO.java</file>
-            <file>file:/C:/Users/UIS/Downloads/talleres-main/talleres-main/MVCEstudiantes/src/mvcestudiantes/view/ScreenManager.java</file>
+            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/view/ScreenManager.java</file>
+            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/controller/CMateria.java</file>
+            <file>file:/C:/Users/Usuario/Documents/NetBeansProjects/talleres/MVCEstudiantes/src/mvcestudiantes/model/Materia.java</file>
         </group>
     </open-files>
 </project-private>
