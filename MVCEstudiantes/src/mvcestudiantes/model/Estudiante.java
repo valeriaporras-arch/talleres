@@ -20,19 +20,19 @@ public class Estudiante {
     
     
 
-    public Estudiante(int idEst, String nombre, String apellido, double promedio) {
-        this.id = idEst;
+    public Estudiante(int id, String nombre, String apellido, double promedio) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.promedio = promedio;
     }
 
-    public int getIdEst() {
+    public int getId() {
         return id;
     }
 
-    public void setIdEst(int idEst) {
-        this.id = idEst;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -61,13 +61,7 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "Estiudiante{" + "idEst=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", promedio=" + promedio + '}';
+        return "Estudiante{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", promedio=" + promedio + '}';
     }
-
-    Object getId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
-    
     
 }
