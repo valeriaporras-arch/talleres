@@ -6,12 +6,8 @@ package mascotas.model;
 
 /**
  *
- * @author Usuario
+ * @author UIS
  */
-public class Mascota {
-    String nombre;
-    String tipo;
-    float felicisdad;
-    float hambre;
-    float sueño;
+public class MascotaDAO {
+    
 }

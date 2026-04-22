@@ -35,9 +35,8 @@ public class ScreenManager {
             controlador.finalizar();
             controlador = null;
             
-            System.out.println("Pantalla cerrada yobjetos liberados.");
+            System.out.println("Pantalla cerrada y objetos liberados.");
             controlador.getVista().setVisible(false);
-            
         }
     }
     

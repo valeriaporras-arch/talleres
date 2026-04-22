@@ -2,16 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package mascotas.model;
+package mascotas.view;
 
 /**
  *
- * @author Usuario
+ * @author UIS
  */
-public class Mascota {
-    String nombre;
-    String tipo;
-    float felicisdad;
-    float hambre;
-    float sueño;
+public class ImagenIcon {
+    
 }

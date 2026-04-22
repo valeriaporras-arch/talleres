@@ -5,6 +5,16 @@
 package mvcestudiantes.model;
 
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Reader;
+import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +24,37 @@ import java.util.List;
  */
 public class EstudianteDAO {
     //base de datos psra guardar dat  val
+    private final String RUTA_ARCHIVO = "estudiantes.json";
     private static List<Estudiante> listaEstudiantes = new ArrayList<>();
+    private Gson gson;
+    
+    public EstudianteDAO() {
+        this.gson = new GsonBuilder().setPrettyPrinting().create();
+        this.listaEstudiantes = cargarDesdeArchivo();
+    }
+    
+    private List<Estudiante> cargarDesdeArchivo () {
+        File archivo = new File(RUTA_ARCHIVO);
+        if (!archivo.exists()) {
+            return new ArrayList<>();
+        }
+        
+        try (Reader reader = new FileReader(RUTA_ARCHIVO)){
+            Type tipoLista = new TypeToken<ArrayList<Estudiante>>(){}.getType();
+            List<Estudiante> lista = gson.fromJson(reader, tipoLista);
+            return (lista != null) ? lista : new ArrayList<>();
+        } catch (IOException e) {
+            return new ArrayList<>();
+        }
+    }
+    
+    private void guardarEnArchivo () {
+        try (Writer writer = new FileWriter(RUTA_ARCHIVO)){
+            gson.toJson(listaEstudiantes, writer);
+        } catch (Exception e) {
+            System.err.println("Error al gustdasr en JSON: " + e.getMessage());
+        }
+    }
     
     //METODO Crear (registrar)
     public boolean guardar(Estudiante est){
